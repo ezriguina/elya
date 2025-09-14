@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elya - Lanzamiento Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --rosa: #F7DDE5;
+      --rosa-claro: #faeef2;
+      --rojo: #E30613;
+      --rojo-oscuro: #b9050f;
+      --texto: #333333;
+      --blanco: #ffffff;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--blanco) 100%);
+      color: var(--texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .contenedor {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      padding: 1.5rem 0;
+      background-color: var(--blanco);
+      box-shadow: 0 4px 12px var(--sombra);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-contenido {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    header img {
+      max-width: 220px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    header img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 5rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+      z-index: 0;
+      animation: pulse 15s infinite alternate;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(10%, 10%) scale(1.1);
+      }
+    }
+    
+    .hero-contenido {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      color: var(--rojo);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease;
+    }
+    
+    .fecha {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--rojo);
+      margin: 2rem 0;
+      padding: 0.8rem 2rem;
+      background: rgba(255, 255, 255, 0.7);
+      display: inline-block;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(227, 6, 19, 0.2);
+      animation: pulseScale 2s infinite;
+    }
+    
+    @keyframes pulseScale {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .mensaje {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+    
+    /* Formulario */
+    .formulario {
+      background: var(--blanco);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      max-width: 500px;
+      margin: 2rem auto;
+      text-align: left;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+    
+    .form-grupo {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-grupo label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-grupo input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-grupo input:focus {
+      border-color: var(--rojo);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.2);
+    }
+    
+    .boton {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blanco);
+      background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
+    }
+    
+    .boton:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(227, 6, 19, 0.4);
+    }
+    
+    .boton:active {
+      transform: translateY(0);
+    }
+    
+    /* Beneficios */
+    .beneficios {
+      padding: 4rem 1rem;
+      background: var(--blanco);
+      border-radius: 30px 30px 0 0;
+      margin-top: 3rem;
+    }
+    
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .beneficio {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--rosa-claro);
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .beneficio:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .beneficio i {
+      font-size: 2.5rem;
+      color: var(--rojo);
+      margin-bottom: 1rem;
+    }
+    
+    .beneficio h3 {
+      margin-bottom: 1rem;
+      color: var(--rojo);
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+      color: var(--blanco);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    
+    .social-links {
+      margin: 2rem 0;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background: var(--blanco);
+      color: var(--rojo);
+      border-radius: 50%;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .copyright {
+      margin-top: 2rem;
+      opacity: 0.8;
+    }
+    
+    /* Animaciones */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .fecha {
+        font-size: 1.5rem;
+      }
+      
+      .mensaje {
+        font-size: 1.1rem;
+      }
+      
+      .formulario {
+        padding: 1.5rem;
+      }
+      
+      .hero {
+        padding: 3rem 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .fecha {
+        font-size: 1.3rem;
+        padding: 0.6rem 1.5rem;
+      }
+      
+      .boton {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+      }
+      
+      .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        margin: 0 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="contenedor header-contenido">
+      <img src="Logo - Rosa y rojo.png" alt="Elya Logo">
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="contenedor hero-contenido">
+      <h1>¡Lanzamiento Oficial de Elya!</h1>
+      <p class="fecha">15 de Octubre</p>
+      <p class="mensaje">
+        En <strong>Elya</strong>, tu familia importa 💕.  
+        Estamos felices de anunciar que el <strong>15 de octubre</strong> abrimos oficialmente nuestra tienda.  
+        Descubre productos pensados para mamás, niños y todo lo relacionado con el bienestar familiar.
+      </p>
+      
+      <div class="formulario">
+        <h2>¡Sé el primero en enterarte!</h2>
+        <p>Recibe novedades y ofertas exclusivas antes del lanzamiento.</p>
+        
+      </div>
+    </div>
+  </section>
+  
+  <section class="beneficios contenedor">
+    <h2>¿Por qué elegir Elya?</h2>
+    <div class="beneficios-grid">
+      <div class="beneficio">
+        <i class="fas fa-heart"></i>
+        <h3>Productos con amor</h3>
+        <p>Seleccionados cuidadosamente para tu familia</p>
+      </div>
+      <div class="beneficio">
+        <i class="fas fa-truck"></i>
+        <h3>Envíos rápidos</h3>
+        <p>Recibe tus productos en tiempo récord</p>
+      </div>
+      <div class="beneficio">
+        <i class="fas fa-star"></i>
+        <h3>Calidad garantizada</h3>
+        <p>Productos de la más alta calidad</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="contenedor">
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@elyafamilia" target="_blank" aria-label="Síguenos en TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/zr_care.1/" target="_blank" aria-label="Síguenos en Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <p class="copyright">© 2025 Elya. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Validación simple del formulario
+    document.getElementById('form-novedades').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      
+      if (email && isValidEmail(email)) {
+        // Aquí normalmente enviarías los datos a un servidor
+        alert('¡Gracias por suscribirte! Te mantendremos informado sobre todas nuestras novedades.');
+        document.getElementById('email').value = '';
+      } else {
+        alert('Por favor, introduce un email válido.');
+      }
+    });
+    
+    function isValidEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+  </script>
+</body>
+</html>
